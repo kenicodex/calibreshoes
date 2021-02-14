@@ -1,0 +1,106 @@
+.itempage {
+  height: 700px;
+  align-items: center;
+  padding: 10px 0 0 70px;
+  width: 100%;
+  display: flex;
+  background-color: white;
+}
+.itempage .sl {
+  animation-name: slideright;
+  animation-duration: 2s;
+  right: 0;
+}
+@keyframes slideright {
+  from {
+    right: -50%;
+  }
+  to {
+    right: 0;
+  }
+}
+.itempage .picture,
+.itempage .details {
+  width: 48%;
+  height: 90%;
+  border: solid 0.2px lightgray;
+}
+.itempage .details {
+  color: white;
+  position: relative;
+}
+.itempage .details button {
+  position: absolute;
+  height: 50px;
+  color: gray;
+  bottom: 4%;
+  left: 25%;
+  padding: 10px 0;
+  font-size: 20px;
+  background-color: white;
+}
+.itempage .mate {
+  position: absolute;
+  height: 50px;
+  margin: auto;
+  bottom: 75px ;
+  width: 100%;
+  text-align: center;
+}
+.itempage .mate .cartbtn:nth-child(1) {
+  width: 25%;
+  font: 15px open;
+  height: inherit;
+  left: 25% ;
+}
+.itempage .mate .cartbtn:nth-child(2) {
+  width: 25%;
+  font: 15px open;
+  height: inherit;
+  left: 60%;
+}
+@media screen and (max-width: 992px) {
+  .itempage {
+    height: 700px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+  }
+  .itempage .picture,
+  .itempage .details {
+    width: 48%;
+    height: 50%;
+  }
+  .itempage .mate {
+    bottom: 64px ;
+  }
+}
+@media screen and (max-width: 576px) {
+  .itempage {
+    height: auto;
+    padding: 4px 0 0 0px;
+    width: 100%;
+    background-color: white;
+    display: block;
+  }
+  .itempage .picture,
+  .itempage .details {
+    width: 100%;
+    height: auto;
+    border: none;
+  }
+  .itempage .picture {
+    margin-top: 10px;
+    height: 400px;
+  }
+  .itempage .details {
+    background-color: white;
+  }
+  .itempage .details .btncart {
+    position: fixed;
+    bottom: 2%;
+  }
+  .itempage .mate {
+    bottom: 66px;
+  }
+}

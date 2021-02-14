@@ -1,0 +1,180 @@
+.darken {
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  filter: brightness(40%);
+  background-color: indigo;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: none;
+}
+header {
+  position: relative;
+  height: 90vh;
+  padding: 10px 10px 0 10px;
+  background-image: inherit;
+}
+header .text {
+  padding: 25vh 0 0 15% ;
+  color: white;
+}
+header .text span:nth-child(1) {
+  font: 70px open;
+}
+header .text span:nth-child(3) {
+  font: 20px cursive;
+}
+header button {
+  background-color: inherit;
+  padding: 10px 50px;
+  margin: 5vh 0 0 20%;
+  border: none;
+  color: whitesmoke;
+  font-size: 20px;
+  border: #fff 0.2px solid;
+}
+main {
+  width: 100%;
+  position: relative;
+  top: 0vh;
+  padding-top: 5px;
+}
+main .xyz {
+  padding: 0 5%;
+  width: auto;
+  height: auto;
+  display: grid;
+  grid-template-areas: 'aaa bbb ddd' 'eee eee eee' 'ccc ccc ccc';
+  grid-template-rows: 400px 50px auto;
+  grid-template-columns: 25% 50% 25%;
+  grid-gap: 5px;
+}
+main .xyz .aaa {
+  grid-area: aaa;
+}
+main .xyz .aaa .a-head {
+  font: 25px open;
+  text-align: center;
+  padding: 10px 0;
+  color: #343a30;
+}
+main .xyz .aaa .cate {
+  font: 20px open;
+}
+main .xyz .aaa .eachcate {
+  color: #343a30;
+  padding: 5px 0 0 5%;
+  border-bottom: lightgrey solid 0.1px;
+  height: 40px;
+  border-radius: 0;
+  cursor: pointer;
+}
+main .xyz .aaa .eachcate:hover {
+  background-color: #343a30;
+  color: #fff;
+}
+main .xyz .bbb {
+  grid-area: bbb;
+  background-size: cover;
+  transition: 2s background;
+  background-image: url('../pics/3d.png');
+}
+main .xyz .bbb .picslides {
+  height: 100%;
+  width: 686px;
+}
+main .xyz .bbb i {
+  cursor: pointer;
+}
+main .xyz .bbb .arr {
+  position: absolute;
+  top: 49%;
+  border-radius: 100px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  opacity: 0.2;
+}
+main .xyz .bbb .leftarrow {
+  left: 1%;
+}
+main .xyz .bbb .rightarrow {
+  right: 1%;
+}
+main .xyz .bbb div {
+  width: 100%;
+  text-align: center;
+  bottom: 1%;
+  background-image: inherit;
+  position: absolute;
+}
+main .xyz .bbb div i {
+  font-size: 10px;
+  margin: 0 2px;
+  opacity: 0.4;
+}
+main .xyz .ddd {
+  grid-area: ddd;
+  display: block;
+  background-color: #fff;
+}
+main .xyz .ddd div {
+  height: 195px;
+  width: 100%;
+  background-color: grey;
+}
+main .xyz .ddd .ddd1 {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+main .xyz .eee {
+  grid-area: eee;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  padding-top: 5px;
+  text-align: center;
+}
+main .xyz div {
+  background-color: #fff;
+}
+main .xyz .product {
+  grid-area: ccc;
+  display: inline-flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+main .xyz .product .item {
+  width: 100%;
+  flex: 15%;
+  margin-bottom: 20px;
+  background-color: #fff;
+  height: 250px;
+  border: lightgray 1px solid;
+  border-radius: 3px;
+  color: #fff;
+}
+main .xyz .product .item div {
+  height: 30%;
+  color: #343a30;
+  background-color: #fff;
+  padding: 4px 10px;
+  border-top: lightgray solid 1px;
+}
+main .xyz .product .item div .name {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
+main .xyz .product .item div .price {
+  font-size: 30px;
+  font-style: bold;
+}
+footer {
+  width: 100%;
+  height: 300px;
+  background-color: #343a30;
+}
+footer span {
+  left: 48%;
+  bottom: 0;
+}

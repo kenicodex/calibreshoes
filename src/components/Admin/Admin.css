@@ -1,0 +1,10 @@
+.grid-input{
+    display: grid;
+    grid-template: auto auto;
+    width: 100%;
+}
+.inputs{
+    width: 300px;
+    padding: .4em;
+
+}
