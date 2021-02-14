@@ -1,6 +1,6 @@
 {
   "name": "ecommerce",
-  "homepage": "https://calibreshoes.netlify.app",
+  "homepage": "./",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

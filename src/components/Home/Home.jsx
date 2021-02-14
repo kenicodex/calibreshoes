@@ -67,7 +67,7 @@ function Home(props) {
                         {products.map(({ name, img, desc, price }, index) => {
                             return (
                                 <div className="h-auto item" onClick={() => { locate(index, rand()) }}>
-                                    <Link to={"/item?id=" + index + "?srcpathquery?=" + rand()} >
+                                    <Link  to={"/item?id=" + index + "?srcpathquery?=" + rand()} >
                                         <img src={path + rand()} alt="" width="100%" height="70%" />
                                         <div className="desc text-dark" style={{ height: "30%" }}>
                                             <span className='name'>{name}</span> <br />
