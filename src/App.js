@@ -7,7 +7,7 @@ import Notfround from './components/Notfound/Notfround';
 
 function App(props) {
   return (
-    <Router basename="/app" >
+    <Router>
       <Switch>
         <Route  exact path='/' component={Home} />
         <Route path='/item' component={Item} />
