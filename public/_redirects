@@ -1,3 +1,5 @@
-https://calibreshoes.netlify.app/cart https://calibreshoes.netlify.app/cart 200
-https://calibreshoes.netlify.app/admin https://calibreshoes.netlify.app/admin 200
-https://calibreshoes.netlify.app/item id=:id srcpathquery= :srcpathquery https://calibreshoes.netlify.app/item id=:id srcpathquery= :srcpathquery 200
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 301
+  force = true
