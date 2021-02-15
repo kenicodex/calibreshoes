@@ -1,10 +1,27 @@
 .grid-input{
-    display: grid;
-    grid-template: auto auto;
-    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex:45%;
+    flex-wrap: wrap;
+}
+.intag{
+    width: 48%; margin-left: 1%;
 }
 .inputs{
-    width: 300px;
-    padding: .4em;
+    width: 100%;
+    padding: .5em; margin-top: 1em;
 
+}
+@media screen and (max-width:576px){
+    .grid-input{
+        display: block;
+    }
+    .intag{
+        width: 100%; margin-left: 0%;
+    }
+    .inputs{
+        width: 100%; margin-left: 0%;
+        padding: .5em; margin-top: 1em;
+    }
+    
 }

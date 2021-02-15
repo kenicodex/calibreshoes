@@ -1,7 +1,7 @@
 .itempage {
-  height: 700px;
+  height: 600px;
   align-items: center;
-  padding: 10px 0 0 70px;
+  padding: 10px 0 0 0;
   width: 100%;
   display: flex;
   background-color: white;
@@ -10,6 +10,7 @@
   animation-name: slideright;
   animation-duration: 2s;
   right: 0;
+  transition: all;
 }
 @keyframes slideright {
   from {
@@ -61,15 +62,17 @@
 }
 @media screen and (max-width: 992px) {
   .itempage {
-    height: 700px;
+    height: auto;
+    top: 55px;
+    position: relative;
     width: 100%;
     background-color: white;
-    display: flex;
+    display: block;
   }
   .itempage .picture,
   .itempage .details {
-    width: 48%;
-    height: 50%;
+    width: 100%;
+    height: auto;
   }
   .itempage .mate {
     bottom: 64px ;
@@ -81,6 +84,8 @@
     padding: 4px 0 0 0px;
     width: 100%;
     background-color: white;
+    position: relative;
+    top: 50px;
     display: block;
   }
   .itempage .picture,
@@ -97,7 +102,7 @@
     background-color: white;
   }
   .itempage .details .btncart {
-    position: fixed;
+    position: relative;
     bottom: 2%;
   }
   .itempage .mate {

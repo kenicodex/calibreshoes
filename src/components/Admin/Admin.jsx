@@ -3,6 +3,7 @@ import Add from './Add';
 import Delete from './Delete';
 import Edit from './Edit';
 import './Admin.css'
+import Products from './Products';
 
 function Admin(props) {
     return (
@@ -13,9 +14,9 @@ function Admin(props) {
                     Welcome Admin
                 </div>
                 
-                <Add />
-                <Edit />
-                <Delete />
+                <Add /> 
+                <hr/>
+                <Products />
             </div>
         </div>
     );

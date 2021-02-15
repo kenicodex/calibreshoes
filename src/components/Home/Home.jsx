@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../Navbar/Navbar';
 import './css/style.css'
 import './css/HomeMobile.css';
@@ -7,23 +7,9 @@ import Header from './Header';
 import { Link } from 'react-router-dom';
 import Slide from './Slide';
 function Home(props) {
-    const [curr, setCurr] = useState(0)
     const locate = (id, pic) => {
         localStorage.setItem("item", JSON.stringify({ id: id, img: pic }))
     }
-    var i = 0;
-    useEffect(() => {
-        var i = 0;
-        setInterval(() => {
-            i++;
-            if (i > 6) {
-                i = 0
-                setCurr(i)
-            } else {
-                setCurr(i)
-            }
-        }, 3000);
-    }, [i])
     useEffect(() => {
         fetch('http://localhost:3000/users', {
             method: "post",
@@ -39,14 +25,14 @@ function Home(props) {
     let path = process.env.PUBLIC_URL + '/images/'
     let arr = ['shop.jpg', 'wl3.jpg', 'wl2.jpg', 'wl.jpg', 'diff.jpg', 'inovate.jpg']
     return (
-        <div className='body' id="n">
+        <div className='body position-relative'>
             <div className='darken' style={{ backgroundImage: `url(${path + 'shoebg.jpg'})` }}></div>
             <Navbar />
             <Header />
-            <main className='bg-light'>
+            <main className='bg-light h-auto'>
                 <div className='xyz'>
                     <div className='border aaa'>
-                        <div className="a-head">Categories {curr + "changed"}</div>
+                        <div className="a-head ff">Categories </div>
                         <div className="cate">
                             {cate.map(({ sex, link }) => {
                                 return (<div className="eachcate">
@@ -67,7 +53,7 @@ function Home(props) {
                         {products.map(({ name, img, desc, price }, index) => {
                             return (
                                 <div className="h-auto item" onClick={() => { locate(index, rand()) }}>
-                                    <Link  to={"/item?id=" + index + "?srcpathquery?=" + rand()} >
+                                    <Link  to={"/item?id=" + index + "?srcpathquery?=" + rand()} className="rounded-lg prod" >
                                         <img src={path + rand()} alt="" width="100%" height="70%" />
                                         <div className="desc text-dark" style={{ height: "30%" }}>
                                             <span className='name'>{name}</span> <br />
@@ -86,7 +72,7 @@ function Home(props) {
                     </div>
                 </div>
             </main>
-            <footer className='position-relative text-light'>
+            <footer className='text-light' style={{bottom:"0"}}>
                 <span className="position-absolute">© copyright kennyCode</span>
             </footer>
         </div>

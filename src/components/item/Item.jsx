@@ -23,32 +23,32 @@ function Item(props) {
             }
         }
     }, [id, pic])
-    const adding=()=>{
+    const adding=(e)=>{
         setDisp({opac:"1",rit:"0"});
          setBought(true); add(products[query.id],query.id)
         setTimeout(() => {
             setDisp({opac:"0",rit:"-50%"})
         }, 3000);
-        if(sessionStorage.getItem(`carted-item${id}`) !== null){
-                // window.location.assign("/cart")
+        if(btn.current.innerHTML !== "Add to cart"){
+            window.location.assign("/cart")
         }
     }
     const { name, price } = products[query.id];
     return (
-        <div>
+        <div className="bg-light">
             <Navbar color="black" />
-            <div className="itempage">
-                <div className="position-fixed w-50 bg-success text-white px-2 pt-4 h4 sl text-center" 
-                style={{top:"60px",height:"100px",right:disp.rit,opacity:disp.opac,transition:"3s right"}}>
+            <div className="itempage bg-light container">
+                <div className="position-fixed w-50 bg-success text-white px-2 pt-5 h4 sl text-center" 
+                style={{top:"60px",height:"100px",right:disp.rit,opacity:disp.opac,transition:"3s right",zIndex:"100"}}>
                     Item successfully added 
                 </div>
-                <div className="picture">
+                <div className="picture rounded">
                     <img src={path + query.pic} width="100%" height="100%" alt="" />
                 </div>
-                <div className="details text-dark">
+                <div className="details rounded-bottom text-dark bg-white">
                     <div className="p-3">
                         <h2>{name} </h2> {query.pic}
-                        <h3>{price}</h3>
+                        <h3><span>&#x20A6;</span>{price}</h3>
                     Delivery info :
                     </div>
                     {/* <div className="mate d-flex">
@@ -56,8 +56,8 @@ function Item(props) {
                         <button  className="cartbtn"> </button>
                     </div> */}
                     <button className="w-50 border btncart" ref={btn}
-                        style={{ backgroundColor: bought ? "green" : "none", color: bought ? "white" : "grey", fontSize:"15px" }} 
-                        onClick={() => { adding() }}>
+                        style={{ backgroundColor: bought ? "green" : "none", color: bought ? "white" : "grey", fontSize:"13px" }} 
+                        onClick={(event) => { adding(event) }}>
                         {bought ? "View cart and checkout" : "Add to cart"}</button>
                 </div>
             </div>

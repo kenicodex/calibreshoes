@@ -1,0 +1,17 @@
+.empty{
+    width: 25%;
+    left:37.5%;
+    top: 30vh;
+}
+@media screen and (max-width:992px){
+    .empty{
+        width: 40%;
+        left: 30%;
+    }
+}
+@media screen and (max-width:576px){
+    .empty{
+        width: 75%;
+        left: 12.5%;
+    }
+}

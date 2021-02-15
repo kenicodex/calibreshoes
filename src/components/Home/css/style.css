@@ -158,16 +158,16 @@ main .xyz .product .item div {
   height: 30%;
   color: #343a30;
   background-color: #fff;
+  background-image: inherit;
   padding: 4px 10px;
   border-top: lightgray solid 1px;
 }
 main .xyz .product .item div .name {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 20px;
+  font-size: 15px;
 }
 main .xyz .product .item div .price {
-  font-size: 30px;
-  font-style: bold;
+  font-size: 20px;
 }
 footer {
   width: 100%;
