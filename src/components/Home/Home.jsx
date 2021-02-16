@@ -30,8 +30,8 @@ function Home(props) {
             <Navbar />
             <Header />
             <main className='bg-light h-auto'>
-                <div className='xyz'>
-                    <div className='border aaa'>
+                <div className='xyz container'>
+                    <div className='border border-success aaa'>
                         <div className="a-head ff">Categories </div>
                         <div className="cate">
                             {cate.map(({ sex, link }) => {

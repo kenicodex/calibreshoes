@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Admin.css'
 function Add(props) {
     const [state, setstate] = useState({

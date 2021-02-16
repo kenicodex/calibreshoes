@@ -3,17 +3,8 @@ import Navbar from '../Navbar/Navbar';
 import './CSS/Cart.css'
 function Cart(props) {
     // let arr = ['shop.jpg', 'wl3.jpg', 'wl2.jpg', 'wl.jpg', 'diff.jpg', 'inovate.jpg']
-    // let width = window.innerWidth / 2
-    let wth = window.innerWidth ;
-    const [styles, setStyles] = useState({width : wth / 1.5 + "px",
-    left : wth / (1.5 * 4) + "px"})
     useEffect(() => {
         setShoppingcart(JSON.parse(sessionStorage.getItem("cart")))
-        if(window.innerWidth)
-        setInterval(() => {
-            setStyles({width : (wth / 1.5) + "px",
-            left : (wth / (1.5 * 4) )+ "px"})
-        }, 500);
         
     }, [])
     const [shoppingcart, setShoppingcart] = useState(JSON.parse(sessionStorage.getItem("cart")))
@@ -43,7 +34,7 @@ function Cart(props) {
         )
     }
     const Empty =()=>{
-        const style = {left:styles.left , width:styles.width, top:"50%", padding:"10px"}
+        // const style = {left:styles.left , width:styles.width, top:"50%", padding:"10px"}
         return(
             <div className="position-fixed text-center rounded-lg h2 p-3 border border-danger text-danger empty">
                 <span style={{fontSize:"40px"}}>😟</span>

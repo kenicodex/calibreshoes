@@ -40,9 +40,9 @@
         top: 0vh;
         padding-top: 5px;
         .xyz{
-            padding: 0 2%; 
-            width: auto; margin: auto;
-            display: grid;
+            padding: 0 0%; 
+            width: auto;
+            display: grid; 
             grid-template-areas:
             'bbb bbb'
             'aaa aaa'
@@ -50,10 +50,10 @@
             'ccc ccc'
             'eee eee';
             grid-template-rows: 400px auto auto 200px;
-            grid-template-columns: 40% 60%;
+            grid-template-columns: 39% 59%;
             grid-gap: 5px;
-            margin: 5px;
-            
+            margin-left: 50px;
+            margin-right:50px;
             .aaa{ grid-area: aaa; } 
             .bbb{ grid-area: bbb;}
             .ddd{ 
@@ -70,11 +70,11 @@
                 grid-area: ccc;
                 background-color:#fea;
                 display:inline-flex; width: 100%;
-                flex-wrap: wrap;
-                gap: 5px;
+                flex-wrap: wrap; 
+                gap: 0px; margin-left: 0px;
                 .item {
-                    width: 100%; flex:30%;
-                    height: auto;
+                    width: 100%; flex:29%; margin: 0px 2px;
+                    height: auto;margin-bottom: 5px;
                     div{
                         height: 30%; color: #000;
                         background-color: #fff;
@@ -102,21 +102,50 @@
     }
 }
 @media screen and (max-width:576px){
+    header{
+        position: relative;
+        height: 400px;
+        padding: 10px 10px 0 10px;
+        background-image: inherit;
+        .text{
+            padding:20vh 0 0 9% ;
+            color: white;
+            span:nth-child(1){
+                font: 60px open;
+            }
+            span:nth-child(3) {
+                font: 20px cursive;
+            }
+        }
+        button {
+            background-color: inherit;
+            padding: 10px 40px;
+            margin:2vh 0 0 20%;
+            border: none;
+            color: whitesmoke;
+            font-size: 20px;
+            border: #fff .2px solid;
+        }
+    }
     main{
-        padding-top: 2px;
+        padding-top: 2px; 
         .xyz{
-            padding: 0 0%;
+            padding: 0 0%; margin: 0 0px; width: auto;
             grid-template-rows: 300px auto auto 200px;
             .aaa{ grid-area: aaa; display: none;} 
             .bbb{ grid-area: bbb;}
             .ddd{ grid-area: ddd;}
             .eee{ grid-area: eee;}
-            .product{     
+            .product{width: 100%; 
                 grid-area: ccc; height: auto;
-                grid-row-gap: 5px;
+                grid-column-gap: 2.4px; margin-left: 2px;
+                grid-row-gap: 3px;  margin-right: 5px;
                 .item {
-                    width: 90%; flex: 45%; cursor: pointer;
-                    height: auto; margin: 5px;
+                    width: 50%; flex: 40%; cursor: pointer;
+                    height: auto; 
+                    :nth-of-type(2n){
+                        opacity: 0;
+                    }
                     div{
                         font: 15px open;
                         .name{
@@ -132,7 +161,7 @@
     }
     footer{ 
         span{width: 50%;
-            left : 35%;
+            left : 30%;
             bottom: 0.7%; font-size: 15px;
         }
     }
