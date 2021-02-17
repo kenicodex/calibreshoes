@@ -32,7 +32,7 @@ function Login(props) {
     return (
         <div className="w-100">
             {/* <Navbar color="black" /> {input.Name} */}
-            <div className="container border-left border-right d-flex justify-content-center" style={{height:"300px"}}>
+            <div className="container border-left border-right d-flex justify-content-center" style={{height:"auto"}}>
                 <div className="col-lg-4 col-md-6 col-sm-12 rounded border position-relative p-0" style={{top:'20vh'}}>
                     <div className="border-bottom name">Login</div> 
                     <div className="w-100"> 
@@ -45,7 +45,7 @@ function Login(props) {
                         </div>
                     </div>
                     <div className="w-100  text-center">
-                        <button className="btn border" type="submit" onClick={()=>{submit()}}>Logisn</button>
+                        <button className="btn border" type="submit" onClick={()=>{submit()}}>Login</button>
                     </div>
                     <div className="position-absolute" style={{right:"1px",bottom:"2px"}}>
                         Forgot password?

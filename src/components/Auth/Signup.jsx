@@ -33,7 +33,7 @@ function Signup(props) {
         <div className="w-100">
             {/* <Navbar color="black"/> */}
             <div className="container border-left border-right d-flex justify-content-center pb-3" style={{height:"auto"}}>
-                <form  className="col-lg-4 col-md-6 col-sm-12 rounded border position-relative p-0" style={{top:'20vh'}}>
+                <div  className="col-lg-4 col-md-6 col-sm-12 rounded border position-relative p-0" style={{top:'20vh'}}>
                     <div className="border-bottom name">Register</div> 
                     <div className="w-100"> 
                     {say}
@@ -56,7 +56,7 @@ function Signup(props) {
                     <div className="w-100 mb-2 text-center">
                         <button className="btn border" type="submit" onClick={()=>{submit()}}>Resgiter</button>
                     </div>
-                </form>
+                </div>
             </div>
                 <div className="w-100 text-center position-relative" style={{top:"30vh"}}>
                    Already have an account? <Link to="/login">Sign in</Link>
