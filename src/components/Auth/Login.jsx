@@ -31,17 +31,20 @@ function Login(props) {
                 .then(data => {
                     setSay(<Msg message={data.email + " successfully logged in"} status="success" />);
                     setInterval(() => {
-                        window.location.assign("/admin?" + data.email );
+                        window.location.assign("/admin?" + data.email);
                     }, 1000);
                 })
         }
     }
     return (
         <div className="w-100">
-            {/* <Navbar color="black" /> {input.Name} */}
+            <nav className="authnav">
+                <Link to="/" className="pt-2">Calibre</Link>
+            </nav>
             <div className="container border-left border-right d-flex justify-content-center" style={{ height: "auto" }}>
                 <div className="col-lg-4 col-md-6 col-sm-12 rounded border position-relative p-0" style={{ top: '20vh' }}>
-                    <div className="border-bottom name">Login</div>
+                    <div className="border-bottom name">Login
+                    <div style={{fontSize:"12px"}}>check out your store</div></div>
                     <div className="w-100">
                         {say}
                         <div className="inputele">

@@ -15,3 +15,14 @@
     padding: .5em;
     margin: 5px 0;
 }
+.authnav{
+    height: 50px;
+    background-color: rgb(114, 112, 112);
+    width: 100%;
+    color: white;
+    font-size: 2em;
+}
+.authnav a{
+    margin-left: 4%;
+}
+/* @media screen and (max-width:992px) */

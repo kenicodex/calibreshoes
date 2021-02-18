@@ -19,7 +19,7 @@ function Navbar(props) {
                 <div><Link to="/">men</Link> </div>
                 <div><Link to="/">women</Link> </div>
                 <div><Link to="/">About us</Link> </div>
-                <div><Link to="/">Help</Link> </div>
+                <div><Link to="/login">Login</Link> </div>
             </div>
 
             <button className='right'><Link to="/cart" className="text-white"><i className='fa fa-shopping-cart'></i></Link></button>
