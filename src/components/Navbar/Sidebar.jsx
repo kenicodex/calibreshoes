@@ -31,7 +31,7 @@ function Sidebar(props) {
                     <div><Link to="/">men</Link> </div>
                     <div><Link to="/">women</Link> </div>
                     <div><Link to="/">About us</Link> </div>
-                    <div><Link to="/">Help</Link> </div>
+                    <div><Link to="/login">Login</Link> </div>
                     <span className="position-fixed bg-dark py-2 text-center w-50"
                     style={{bottom:"0"}}>©kennycode 2021</span>
                 </div>
