@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { check } from '../Extras/check';
 import './auth.css'
-
+import { Happy } from './input';
 function Signup(props) {
     const [input, setInput] = useState({})
     const [say, setSay] = useState("")
@@ -18,9 +18,9 @@ function Signup(props) {
     }
     const { Name, Email, Password, Phone, Confirm } = input
     const submit = () => {
-        alert(Password.length)
+        const person = new Happy(Name, Email, Password);
         if (check(Name, "") || check(Email, "") || check(Password, "") || check(Phone, "") || check(Confirm, undefined)) {
-            setSay(<Msg message="Please fill in all fields" status="error" />)
+            setSay(<Msg message={"Please fill in all fields " + person.area(" what")} status="error" />)
         } else {
             if (!check(Password, Confirm)) {
                 setSay(<Msg message="Passwords don't match" status="error" />)
@@ -57,13 +57,13 @@ function Signup(props) {
                     <div className="w-100">
                         {say}
                         <div className="inputele">
-                            <input type="text" value={input.Name} name="Name" placeholder="Name" onChange={(event) => { change(event) }} />
+                            <input type="text" value={input.Name} name="Name" placeholder="Full Name" onChange={(event) => { change(event) }} />
                         </div>
                         <div className="inputele">
                             <input type="email" value={input.Email} name="Email" placeholder="Email" onChange={(event) => { change(event) }} />
                         </div>
                         <div className="inputele">
-                            <input type="phone" value={input.Phone} name="Phone" placeholder="Phone" onChange={(event) => { change(event) }} />
+                            <input type="tel" value={input.Phone} name="Phone" placeholder="Phone" onChange={(event) => { change(event) }} />
                         </div>
                         <div className="inputele">
                             <input type="password" value={input.Password} name="Password" placeholder="Password" onChange={(event) => { change(event) }} />
