@@ -22,7 +22,7 @@ function Login(props) {
             setSay(<Msg message="Please fill in all fields" status="error" />)
         } else {
             setSay(<Msg message="Loading..." status="info" />)
-            fetch("http://localhost:5000/calibreauth/login", {
+            fetch("http://kennyserver.herokuapp.com/calibreauth/login", {
                 method: "post",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(input)

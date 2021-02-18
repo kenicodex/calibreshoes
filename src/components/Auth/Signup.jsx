@@ -33,7 +33,7 @@ function Signup(props) {
                         setSay(<Msg message="Password must contain at least 1 uppercase, 1 lowwercase and 1 special character.eg" status="error" />)   
                     } else {
                         setSay(<Msg message="Loading..." status="info" />)
-                        fetch("http://localhost:5000/calibreauth/signup", {
+                        fetch("http://kennyserver.herokuapp.com/calibreauth/signup", {
                             method: "post",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify(input)
