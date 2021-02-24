@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { check } from '../Extras/check';
 import './auth.css'
-import { Happy } from './input';
 function Signup(props) {
     const [input, setInput] = useState({})
     const [say, setSay] = useState("")
+    useEffect(() => {
+        fetch("https://kennyserver.herokuapp.com/calibreauth/logged").then(res=>res.json()).then(data =>{
+            if (data.log) {
+                window.location.assign('/admin')
+            }
+        })
+    }, [])
     const change = (e) => {
         var name = e.target.name;
         var value = e.target.value;
@@ -16,11 +22,11 @@ function Signup(props) {
         if (props.status === "success") { color = "success" } else if (props.status === "info") { color = "info" } else if (props.status === "error") { color = "danger" }
         return <div className={`border border-${color} text-center w-auto mx-5 rounded p-2 text-${color}`}>{props.message}</div>
     }
-    const { Name, Email, Password, Phone, Confirm } = input
+    const { Firstname,Lastname, Email, Password, Phone, Confirm } = input
     const submit = () => {
-        const person = new Happy(Name, Email, Password);
-        if (check(Name, "") || check(Email, "") || check(Password, "") || check(Phone, "") || check(Confirm, undefined)) {
-            setSay(<Msg message={"Please fill in all fields " + person.area(" what")} status="error" />)
+
+        if (check(Firstname, "") || check(Lastname, "") || check(Email, "") || check(Password, "") || check(Phone, "") || check(Confirm, undefined)) {
+            setSay(<Msg message={"Please fill in all fields "} status="error" />)
         } else {
             if (!check(Password, Confirm)) {
                 setSay(<Msg message="Passwords don't match" status="error" />)
@@ -32,14 +38,24 @@ function Signup(props) {
                     if (Password.match(regex)) {
                         setSay(<Msg message="Password must contain at least 1 uppercase, 1 lowwercase and 1 special character.eg" status="error" />)   
                     } else {
+                        const formData = new FormData();
+                        formData.append('details',JSON.stringify(input))
                         setSay(<Msg message="Loading..." status="info" />)
-                        fetch("http://kennyserver.herokuapp.com/calibreauth/signup", {
+                        fetch("https://kennyserver.herokuapp.com/calibreauth/signup", {
                             method: "post",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(input)
+                            body: formData
                         })
                             .then(res => res.json())
-                            .then(data => setSay(<Msg message={data.message} status={data.status} />))
+                            .then(data => {
+                                setSay(<Msg message={data.message} status={data.status} />)
+                                sessionStorage.setItem("sent",JSON.stringify(input))
+                                alert(data.careful)
+                                if(data.status === "success"){
+                                    sessionStorage.setItem("unknown",data.careful)
+                                    localStorage.setItem("user",JSON.stringify(input))
+                                    window.location.assign("/confirm?email="+Email)
+                                }
+                            })
                     }
                 }
             }
@@ -57,7 +73,10 @@ function Signup(props) {
                     <div className="w-100">
                         {say}
                         <div className="inputele">
-                            <input type="text" value={input.Name} name="Name" placeholder="Full Name" onChange={(event) => { change(event) }} />
+                            <input type="text" value={input.Firstname} name="Firstname" placeholder="Firstname" onChange={(event) => { change(event) }} />
+                        </div>
+                        <div className="inputele">
+                            <input type="text" value={input.Lastname} name="Lastname" placeholder="Lastname" onChange={(event) => { change(event) }} />
                         </div>
                         <div className="inputele">
                             <input type="email" value={input.Email} name="Email" placeholder="Email" onChange={(event) => { change(event) }} />

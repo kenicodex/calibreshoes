@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { check } from '../Extras/check';
 import './auth.css'
 
 function Login(props) {
+    useEffect(()=>{
+        fetch("http://localhost:5000/calibreauth/logged").then(res=>res.json()).then(data =>{
+            if (data.log) {
+                window.location.assign('/admin')
+            }
+        })
+    },[])
     const [input, setInput] = useState({})
     const [say, setSay] = useState("")
     const change = (e) => {
@@ -22,17 +29,20 @@ function Login(props) {
             setSay(<Msg message="Please fill in all fields" status="error" />)
         } else {
             setSay(<Msg message="Loading..." status="info" />)
-            fetch("http://kennyserver.herokuapp.com/calibreauth/login", {
+            fetch("http://localhost:5000/calibreauth/login", {
                 method: "post",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(input)
             })
                 .then(res => res.json())
                 .then(data => {
-                    setSay(<Msg message={data.email + " successfully logged in"} status="success" />);
-                    setInterval(() => {
-                        window.location.assign("/admin?" + data.email);
-                    }, 1000);
+                    if (data.status === "success") {
+                        setSay(<Msg message={data.message + " successfully logged in"} status={data.status} />); 
+                        localStorage.setItem("user",JSON.stringify(input))
+                        window.location.assign('/admin')
+                    }else{
+                        setSay(<Msg message={data.message} status={data.status} />); 
+                    }
                 })
         }
     }

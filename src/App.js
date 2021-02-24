@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Admin from './components/Admin/Admin';
+import Confrim from './components/Auth/Confrim';
 import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
 import Cart from './components/Cart/Cart';
@@ -17,6 +18,7 @@ function App(props) {
         <Route path='/admin' component={Admin} />
         <Route path='/login' component={Login} />
         <Route path='/signup' component={Signup} />
+        <Route path='/confirm' component={Confrim} />
         <Route path='*' component={Notfround} />
       </Switch>
     </Router>

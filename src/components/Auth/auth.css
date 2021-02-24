@@ -8,12 +8,12 @@
 }
 .inputele{
     width: 90%;
-    margin:30px auto ;
+    margin:25px auto ;
 }
 .inputele input {
     width: 100%;
     padding: .5em;
-    margin: 5px 0;
+    margin: 2px 0;
 }
 .authnav{
     height: 50px;
