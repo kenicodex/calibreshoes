@@ -5,8 +5,9 @@ import Products from './Products';
 
 function Admin(props) {
     const [acct, setAcct] = useState({})
+    let online = "https://kennyserver.herokuapp.com", local = "http://localhost:5000";
     useEffect(()=>{
-        fetch("https://kennyserver.herokuapp.com/calibreauth/logged").then(res=>res.json()).then(data =>{
+        fetch(online + "/calibreauth/logged").then(res=>res.json()).then(data =>{
             if (!data.log) {
                 window.location.assign('/login')
             }
@@ -23,7 +24,21 @@ function Admin(props) {
             })
             
         }
-    },[])
+    },[online])
+    const logout =()=>{
+        var con =  window.confirm("Are you sure you want to log out?")
+        if(con){
+            fetch(online + "/calibreauth/logout",{
+                method :'post'
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.logout){
+                    window.location.assign("/login")
+                }
+            })
+        }
+    }
     return (
         <div>
             <div className="container border-left border-right">
@@ -33,7 +48,7 @@ function Admin(props) {
                         return <p>{Firstname}</p>
                     })} */}
                      <button className="btn h6 float-right border"
-                      onClick={()=>{localStorage.setItem("isLoggedin",false)}}>logout</button>
+                      onClick={()=>{logout()}}>logout</button>
                 </div>
                 
                 <Add /> 
