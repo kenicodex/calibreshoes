@@ -6,7 +6,7 @@ function Signup(props) {
     const [input, setInput] = useState({})
     const [say, setSay] = useState("")
     let online = "https://kennyserver.herokuapp.com"
-    // local = "http://localhost:5000";
+    // let local = "http://localhost:5000";
     useEffect(() => {
         fetch(online + "/calibreauth/logged").then(res=>res.json()).then(data =>{
             if (data.log) {

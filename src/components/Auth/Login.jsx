@@ -5,7 +5,7 @@ import './auth.css'
 
 function Login(props) {
     let online = "https://kennyserver.herokuapp.com"
-    // local = "http://localhost:5000";
+    // let local = "http://localhost:5000";
     useEffect(()=>{
         fetch(online + "/calibreauth/logged").then(res=>res.json()).then(data =>{
             if (data.log) {
