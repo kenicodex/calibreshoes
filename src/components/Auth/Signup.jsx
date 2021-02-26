@@ -5,13 +5,15 @@ import './auth.css'
 function Signup(props) {
     const [input, setInput] = useState({})
     const [say, setSay] = useState("")
+    let online = "https://kennyserver.herokuapp.com"
+    // local = "http://localhost:5000";
     useEffect(() => {
-        fetch("https://kennyserver.herokuapp.com/calibreauth/logged").then(res=>res.json()).then(data =>{
+        fetch(online + "/calibreauth/logged").then(res=>res.json()).then(data =>{
             if (data.log) {
                 window.location.assign('/admin')
             }
         })
-    }, [])
+    }, [online])
     const change = (e) => {
         var name = e.target.name;
         var value = e.target.value;
@@ -41,7 +43,7 @@ function Signup(props) {
                         const formData = new FormData();
                         formData.append('details',JSON.stringify(input))
                         setSay(<Msg message="Loading..." status="info" />)
-                        fetch("https://kennyserver.herokuapp.com/calibreauth/signup", {
+                        fetch(online+"/calibreauth/signup", {
                             method: "post",
                             body: formData
                         })
@@ -49,10 +51,7 @@ function Signup(props) {
                             .then(data => {
                                 setSay(<Msg message={data.message} status={data.status} />)
                                 sessionStorage.setItem("sent",JSON.stringify(input))
-                                alert(data.careful)
                                 if(data.status === "success"){
-                                    sessionStorage.setItem("unknown",data.careful)
-                                    localStorage.setItem("user",JSON.stringify(input))
                                     window.location.assign("/confirm?email="+Email)
                                 }
                             })

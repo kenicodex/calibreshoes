@@ -27,7 +27,7 @@ function Sidebar(props) {
             <div className="bg-dark sidebar" ref={hi}>
                 <div className="side" onClick={toggle} ></div>
                 <div className="position-fixed text-white bg-dark content" style={{ zIndex: "1000" }}>
-                    <div><Link to="/">products</Link> </div>
+                    <div><Link to="#products">products</Link> </div>
                     <div><Link to="/">men</Link> </div>
                     <div><Link to="/">women</Link> </div>
                     <div><Link to="/">About us</Link> </div>

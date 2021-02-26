@@ -11,7 +11,7 @@ function Navbar(props) {
     return (
         <nav className='w-100' style={{backgroundColor:props.color || "none"}} >   <Sidebar />
             <div className="brand">
-                <Link to="/">Calibre</Link>
+                <Link to="/">EasyShopping</Link>
             </div>
             <Search />
             <div className='links' >

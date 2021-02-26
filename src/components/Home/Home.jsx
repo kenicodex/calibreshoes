@@ -26,7 +26,7 @@ function Home(props) {
     let arr = ['shop.jpg', 'wl3.jpg', 'wl2.jpg', 'wl.jpg', 'diff.jpg', 'inovate.jpg']
     return (
         <div className='body position-relative'>
-            <div className='darken' style={{ backgroundImage: `url(${path + 'shoebg.jpg'})` }}></div>
+            <div className='darken' style={{ backgroundImage: `url(${path + 'nbg.jpg'})` }}></div>
             <Navbar />
             <Header />
             <main className='bg-light h-auto'>
@@ -48,8 +48,8 @@ function Home(props) {
                     <div className="eee">
                         <span style={{ color: "green" }}>Q</span>uick
                         <span style={{ color: "black" }}> D</span>elivery
-                    </div>
-                    <div className='product bg-light'>
+                    </div> 
+                    <div className='product bg-light' id="products">
                         {products.map(({ name, img, desc, price }, index) => {
                             return (
                                 <div className="h-auto item" onClick={() => { locate(index, rand()) }}>
@@ -72,7 +72,20 @@ function Home(props) {
                     </div>
                 </div>
             </main>
-            <footer className='text-light' style={{bottom:"0"}}>
+            <footer className='text-light bg-dark ' style={{bottom:"0",height:'150%'}}>
+                <div className="d-lg-flex w-100">                        
+                    <div className="about pb-4 col-lg-6 p-2 h3">
+                    EasyShopping is an online shopping site where anyone with any type of business can affordably advertise
+                    </div>
+                    <div className="contact pb-4 px-3 col-lg-6 ">
+                        <h3>Contact us on any of these :</h3>
+                        Phone : 08085503290 <br/>
+                        Email : kehindesalaudeen222@gmail.com <br/>
+                        facebook : pending <br/>
+                        instagram : pending <br/>
+                        whatsapp : pending
+                    </div>
+                </div>
                 <span className="position-absolute">© copyright kennyCode</span>
             </footer>
         </div>

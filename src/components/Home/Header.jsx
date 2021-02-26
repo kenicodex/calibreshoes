@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Header(props) {
     let path = process.env.PUBLIC_URL + '/images/'
     return (
         <header className='header'>
         <div className='text'>
-            <span>Calibre</span>
+            <span>Easy Shopping</span>
             <br />
-            <span>Easy and Affordable Deals</span>
+            <span>Easy and Affordable Deals <br/> buy and sells products</span>
         </div>
-        <button className='rounded'>Buy Now</button>
+       <Link to="/signup"><button className='rounded bg-success'>Join Us</button></Link> 
         <img src={path + 'yespng'} alt="" className='ad' />
     </header>
     );
