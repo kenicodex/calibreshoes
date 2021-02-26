@@ -12,7 +12,7 @@ function Home(props) {
     }
     const [chill, setChill] = useState("block")
     useEffect(() => {
-        fetch('http://localhost:5000/users', {
+        fetch('https://kennyserver.herokuapp.com/users', {
             method: "post",
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify({ "name": "whatever" })
