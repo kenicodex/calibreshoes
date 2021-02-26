@@ -9,8 +9,7 @@ function Confrim(props) {
     const [msg, setMsg] = useState("")
     let online = "https://kennyserver.herokuapp.com"
     //  local = "http://localhost:5000";
-     
-
+    
     useEffect(() => {
         fetch(online + "/calibreauth/logged").then(res => res.json()).then(data => {
             if (data.log) {
@@ -52,10 +51,8 @@ function Confrim(props) {
         }
     }
     return (<div>
-
-
         <nav className="authnav">
-            <Link to="/" className="pt-2">Calibre</Link>
+            <Link to="/" className="pt-2">EasyShoppings</Link>
         </nav>
         <div className=" container text-center" style={{ width: "100vw", height: "95vh", paddingTop: "20vh", display: "block" }}>
             <h2>We just emailed you a verification code</h2>

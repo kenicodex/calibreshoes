@@ -4,13 +4,15 @@ import { check } from '../Extras/check';
 import './auth.css'
 
 function Login(props) {
+    let online = "https://kennyserver.herokuapp.com"
+    // local = "http://localhost:5000";
     useEffect(()=>{
-        fetch("http://localhost:5000/calibreauth/logged").then(res=>res.json()).then(data =>{
+        fetch(online + "/calibreauth/logged").then(res=>res.json()).then(data =>{
             if (data.log) {
                 window.location.assign('/admin')
             }
         })
-    },[])
+    },[online])
     const [input, setInput] = useState({})
     const [say, setSay] = useState("")
     const change = (e) => {
@@ -29,7 +31,7 @@ function Login(props) {
             setSay(<Msg message="Please fill in all fields" status="error" />)
         } else {
             setSay(<Msg message="Loading..." status="info" />)
-            fetch("http://localhost:5000/calibreauth/login", {
+            fetch(online+"/calibreauth/login", {
                 method: "post",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(input)
@@ -49,7 +51,7 @@ function Login(props) {
     return (
         <div className="w-100">
             <nav className="authnav">
-                <Link to="/" className="pt-2">Calibre</Link>
+                <Link to="/" className="pt-2">EasyShoppings</Link>
             </nav>
             <div className="container border-left border-right d-flex justify-content-center" style={{ height: "auto" }}>
                 <div className="col-lg-4 col-md-6 col-sm-12 rounded border position-relative p-0" style={{ top: '20vh' }}>

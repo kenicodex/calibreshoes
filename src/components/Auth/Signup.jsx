@@ -63,7 +63,7 @@ function Signup(props) {
     return (
         <div className="w-100">
             <nav className="authnav">
-                <Link to="/" className="pt-2">Calibre</Link>
+                <Link to="/" className="pt-2">EasyShoppings</Link>
             </nav>
             <div className="container border-left border-right d-flex justify-content-center pb-3" style={{ height: "auto" }}>
                 <div className="col-lg-4 col-md-6 col-sm-12 rounded border position-relative p-0" style={{ top: '10vh' }}>
