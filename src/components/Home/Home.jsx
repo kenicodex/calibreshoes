@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import './css/style.css'
 import './css/HomeMobile.css';
@@ -10,14 +10,19 @@ function Home(props) {
     const locate = (id, pic) => {
         localStorage.setItem("item", JSON.stringify({ id: id, img: pic }))
     }
+    const [chill, setChill] = useState("block")
     useEffect(() => {
-        fetch('http://localhost:3000/users', {
+        fetch('http://localhost:5000/users', {
             method: "post",
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify({ "name": "whatever" })
         })
             .then(res => res.json())
-            .then(data => alert(data.info))
+            .then(data => {
+                if (data.info === "loaded") {
+                    setChill("none"); 
+                }
+            })
     }, [])
     const rand = () => {
         return arr[Math.floor((Math.random() * arr.length))]
@@ -25,7 +30,10 @@ function Home(props) {
     let path = process.env.PUBLIC_URL + '/images/'
     let arr = ['shop.jpg', 'wl3.jpg', 'wl2.jpg', 'wl.jpg', 'diff.jpg', 'inovate.jpg']
     return (
-        <div className='body position-relative'>
+        <div className='body position-relative'> 
+        <div className="position-fixed bg-dark text-center" style={{width:"100vw",height:'100vh',zIndex:"1000",display:chill}}>
+            <div className="h1 position-relative text-light" style={{top:"40%"}}>EasyShoppings </div>
+        </div>
             <div className='darken' style={{ backgroundImage: `url(${path + 'nbg.jpg'})` }}></div>
             <Navbar />
             <Header />
