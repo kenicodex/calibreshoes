@@ -11,7 +11,9 @@ function Home(props) {
         localStorage.setItem("item", JSON.stringify({ id: id, img: pic }))
     }
     const [chill, setChill] = useState("block")
+    const [network,setNetwork] = useState("")
     useEffect(() => {
+        setTimeout(()=> setNetwork("Time out! please refresh page"), 5000)
         fetch('https://kennyserver.herokuapp.com/users', {
             method: "post",
             headers: {'Content-Type':'application/json'},
@@ -31,8 +33,8 @@ function Home(props) {
     let arr = ['shop.jpg', 'wl3.jpg', 'wl2.jpg', 'wl.jpg', 'diff.jpg', 'inovate.jpg']
     return (
         <div className='body position-relative'> 
-        <div className="position-fixed bg-dark text-center" style={{width:"100vw",height:'100vh',zIndex:"1000",display:chill}}>
-            <div className="h1 position-relative text-light" style={{top:"40%"}}>EasyShoppings </div>
+        <div className="position-fixed bg-dark text-center d-none"  style={{width:"100vw",height:'100vh',zIndex:"1000",display:chill}}>
+            <div className="h1 position-relative text-light" style={{top:"40%"}}>EasyShoppings <h6>{network}</h6> </div>
         </div>
             <div className='darken' style={{ backgroundImage: `url(${path + 'nbg.jpg'})` }}></div>
             <Navbar />

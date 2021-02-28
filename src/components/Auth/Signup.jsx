@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { check } from '../Extras/check';
+import { isLoggedin } from '../Extras/session';
 import './auth.css'
 function Signup(props) {
     const [input, setInput] = useState({})
@@ -8,11 +9,10 @@ function Signup(props) {
     let online = "https://kennyserver.herokuapp.com"
     // let local = "http://localhost:5000";
     useEffect(() => {
-        fetch(online + "/calibreauth/logged").then(res=>res.json()).then(data =>{
-            if (data.log) {
-                window.location.assign('/admin')
-            }
-        })
+        // fetch(online + "/calibreauth/logged").then(res=>res.json()).then(data =>{
+        //     if (data.log) { window.location.assign('/admin') }
+        // })
+        isLoggedin();
     }, [online])
     const change = (e) => {
         var name = e.target.name;

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { check } from '../Extras/check';
+import { isLoggedin, log } from '../Extras/session';
 import './auth.css'
 
 function Login(props) {
     let online = "https://kennyserver.herokuapp.com"
     // let local = "http://localhost:5000";
     useEffect(()=>{
-        fetch(online + "/calibreauth/logged").then(res=>res.json()).then(data =>{
-            if (data.log) {
-                window.location.assign('/admin')
-            }
-        })
+        // fetch(online + "/calibreauth/logged").then(res=>res.json()).then(data =>{
+        //     if (data.log) { window.location.assign('/admin') }
+        // })
+        isLoggedin()
     },[online])
     const [input, setInput] = useState({})
     const [say, setSay] = useState("")
@@ -41,6 +41,7 @@ function Login(props) {
                     if (data.status === "success") {
                         setSay(<Msg message={data.message + " successfully logged in"} status={data.status} />); 
                         localStorage.setItem("user",JSON.stringify(input))
+                        log(true)
                         window.location.assign('/admin')
                     }else{
                         setSay(<Msg message={data.message} status={data.status} />); 

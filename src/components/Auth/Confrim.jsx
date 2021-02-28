@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { isLoggedin, log } from '../Extras/session';
 import './auth.css'
 
 function Confrim(props) {
     const [code, setCode] = useState("")
-    const [sec, setSec] = useState(59)
-    const [min, setMin] = useState(1)
     const [msg, setMsg] = useState("")
     let online = "https://kennyserver.herokuapp.com"
     //  local = "http://localhost:5000";
     
     useEffect(() => {
-        fetch(online + "/calibreauth/logged").then(res => res.json()).then(data => {
-            if (data.log) {
-                window.location.assign('/admin')
-            }
-        })
-        let cle = setInterval(() => setSec(r => r - 1) , 1000);
-        setTimeout(() => {setMin(0); setSec(59);} , 60000);
-        setTimeout(() => clearInterval(cle), 120000)
+        // fetch(online + "/calibreauth/logged").then(res => res.json()).then(data => {
+        //     if (data.log) {
+        //         window.location.assign('/admin')
+        //     }
+        // })
+        isLoggedin()
     }, [online])
     // const resend =()=>{
     //     let code = Math.floor(Math.random() * 1000000);
@@ -42,6 +39,7 @@ function Confrim(props) {
                 .then(data => {
                     if (data.status === "success") {
                         window.location.assign("/admin")
+                        log(true)
                     } else if (data.message === "Invalid code") {
                         setMsg(<Msg message={data.message} status={data.status}/>)
                     }else{
@@ -61,7 +59,8 @@ function Confrim(props) {
                 placeholder="Enter code" onChange={(event) => { setCode(event.target.value) }} /> <br />
             <button onClick={() => { toSend() }} className="mt-4 p-2 w-25 btn border">send</button>
             <div className=" p-2">
-                {min}:{sec}
+                {/* {min}:{sec} */}
+                the code expires in two minutes <br/> do not refresh this page
             </div>
         </div>
     </div>
