@@ -62,7 +62,7 @@ function Add(props) {
     }
     return (
         <div id="form" encType="multipart/form-data" >
-            <h3 style={{ marginLeft: "1%" }} >Add {props.seller}  New Item</h3>  <div style={{ marginLeft: "1%" }}>{staus}</div>
+            <h3 style={{ marginLeft: "1%" }} >Add New Item</h3>  <div style={{ marginLeft: "1%" }}>{staus}</div>
             <div className="d-flex" style={{ overflowX: "scroll" }}>
                 <img src={temp} alt="" width="150px" height="180px" className="m-1" />
                 <label className="rounded border text-center p-4 m-1" htmlFor="photo" style={{ height: "200px", width: "150px", cursor: "pointer" }}>
@@ -75,9 +75,6 @@ function Add(props) {
                     let img = URL.createObjectURL(imgs)
                     return (
                         <div className="d-block position-relative mx-1">
-                            {/* <div className="text-danger position-absolute " onClick={()=>{setPics(pics.filter(f => ))}}
-                            style={{ right: '2%', zIndex: '100' }}>x</div> */}
-                            {/* <div>{imgs.name}</div> */}
                             <img src={img} width="100px" height="100px" alt="" />
                         </div>)
                 })}

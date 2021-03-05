@@ -5,7 +5,7 @@ import './auth.css'
 
 function Login(props) {
     let online = "https://kennyserver.herokuapp.com"
-    // let local = "http://localhost:5000";
+    let local = "http://localhost:5000";
     useEffect(() => {
         if (localStorage.getItem("logged") === "in") {
             window.location.assign('/admin')
@@ -43,11 +43,10 @@ function Login(props) {
                         if (data.status === "success") {
                             setSay(<Msg message={data.message + " successfully logged in"} status={data.status} />);
                             localStorage.setItem("user", JSON.stringify(input))
+                            localStorage.setItem("logged","in")
                             window.location.assign('/admin')
                         } else {
                             setSay(<Msg message={data.message} status={data.status} />);
-                            localStorage.setItem("logged","in")
-                            window.location.assign('/admin')
                         }
                     })
             }

@@ -48,7 +48,7 @@ function Signup(props) {
                             const formData = new FormData();
                             formData.append('details', JSON.stringify(input))
                             setSay(<Msg message="Loading..." status="info" />)
-                            fetch(local + "/calibreauth/signup", {
+                            fetch(online + "/calibreauth/signup", {
                                 method: "post",
                                 body: formData
                             })
