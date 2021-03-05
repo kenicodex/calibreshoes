@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { isLoggedin, log } from '../Extras/session';
+// import { isLoggedin, log } from '../Extras/session';
 import './auth.css'
 
 function Confrim(props) {
@@ -15,7 +15,7 @@ function Confrim(props) {
         //         window.location.assign('/admin')
         //     }
         // })
-        isLoggedin()
+        // isLoggedin()
     }, [online])
     // const resend =()=>{
     //     let code = Math.floor(Math.random() * 1000000);
@@ -39,7 +39,6 @@ function Confrim(props) {
                 .then(data => {
                     if (data.status === "success") {
                         window.location.assign("/admin")
-                        log(true)
                     } else if (data.message === "Invalid code") {
                         setMsg(<Msg message={data.message} status={data.status}/>)
                     }else{

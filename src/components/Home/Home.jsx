@@ -55,7 +55,7 @@ function Home(props) {
                     <div className="bbb position-relative">
                         <Slide height="100%" width="100%" pics={arr} />
                     </div>
-                    <div className="eee">
+                    <div className="eee bg-light">
                         <span style={{ color: "green" }}>Q</span>uick
                         <span style={{ color: "black" }}> D</span>elivery
                     </div> 
